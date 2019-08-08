@@ -11,6 +11,11 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   */
 case class Baserver(spark: SparkSession, module: String = "baserver", eventName: String = "sys_input_output", sourceDF: DataFrame) extends Logging {
 
+  /**
+    * 统计
+    * @param moduleDF
+    * @return
+    */
   def statisticsByTime(moduleDF: DataFrame) = {
     import spark.implicits._
     val conf = spark.sparkContext.getConf
@@ -32,7 +37,7 @@ case class Baserver(spark: SparkSession, module: String = "baserver", eventName:
     val res = sourceDF.selectExpr("cast(value as String)") // key is null
       .select(get_json_object($"value", "$.module").alias("module"), // 过滤module
       get_json_object($"value", "$.eventName").alias("eventName"), // 过滤
-      get_json_object(get_json_object(get_json_object(gt_json_object($"value", "$.message"), "$.message"), "$.input"), "$.externalSessionId").alias("sessionId"), // distinct
+      get_json_object(get_json_object(get_json_object(get_json_object($"value", "$.message"), "$.message"), "$.input"), "$.externalSessionId").alias("sessionId"), // distinct
       get_json_object($"value", "$.logTime").alias("logTime").cast("timestamp")) //每分钟
       .filter(
       s""" module = '${module}'
