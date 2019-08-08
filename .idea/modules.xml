@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProjectWithSpark2.1.iml" filepath="$PROJECT_DIR$/ProjectWithSpark2.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baserverTV/baserverTV.iml" filepath="$PROJECT_DIR$/baserverTV/baserverTV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hiveToEs/hiveToEs.iml" filepath="$PROJECT_DIR$/hiveToEs/hiveToEs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafkaConsumer/kafkaConsumer.iml" filepath="$PROJECT_DIR$/kafkaConsumer/kafkaConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kgQuery/kgQuery.iml" filepath="$PROJECT_DIR$/kgQuery/kgQuery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logError/logError.iml" filepath="$PROJECT_DIR$/logError/logError.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nlugw/nlugw.iml" filepath="$PROJECT_DIR$/nlugw/nlugw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scalaTest/scalaTest.iml" filepath="$PROJECT_DIR$/scalaTest/scalaTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zipkinAgg/zipkinAgg.iml" filepath="$PROJECT_DIR$/zipkinAgg/zipkinAgg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zipkinAggAll/zipkinAggAll.iml" filepath="$PROJECT_DIR$/zipkinAggAll/zipkinAggAll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zipkinOneHour/zipkinOneHour.iml" filepath="$PROJECT_DIR$/zipkinOneHour/zipkinOneHour.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zipkinSpan/zipkinSpan.iml" filepath="$PROJECT_DIR$/zipkinSpan/zipkinSpan.iml" />
+    </modules>
+  </component>
+</project>

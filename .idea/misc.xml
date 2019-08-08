@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/zipkinAgg/pom.xml" />
+        <option value="$PROJECT_DIR$/logError/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkinOneHour/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkinAggAll/pom.xml" />
+        <option value="$PROJECT_DIR$/kafkaConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkinSpan/pom.xml" />
+        <option value="$PROJECT_DIR$/nlugw/pom.xml" />
+        <option value="$PROJECT_DIR$/kgQuery/pom.xml" />
+        <option value="$PROJECT_DIR$/hiveToEs/pom.xml" />
+        <option value="$PROJECT_DIR$/scalaTest/pom.xml" />
+        <option value="$PROJECT_DIR$/baserverTV/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/zipkinAgg/logError/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kgQuery:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/kgQuery_jar</output-path>
+    <root id="archive" name="kgQuery.jar">
+      <element id="module-output" name="kgQuery" />
+    </root>
+  </artifact>
+</component>

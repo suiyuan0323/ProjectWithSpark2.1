@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="nlugw:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/nlugw_jar</output-path>
+    <root id="archive" name="nlugw.jar">
+      <element id="module-output" name="nlugw" />
+    </root>
+  </artifact>
+</component>

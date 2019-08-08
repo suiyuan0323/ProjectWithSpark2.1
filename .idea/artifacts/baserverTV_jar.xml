@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="baserverTV:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/baserverTV_jar</output-path>
+    <root id="archive" name="baserverTV.jar">
+      <element id="module-output" name="baserverTV" />
+    </root>
+  </artifact>
+</component>

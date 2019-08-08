@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="zipkinOneHour:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/zipkinOneHour_jar</output-path>
+    <root id="archive" name="zipkinOneHour.jar">
+      <element id="module-output" name="zipkinOneHour" />
+    </root>
+  </artifact>
+</component>

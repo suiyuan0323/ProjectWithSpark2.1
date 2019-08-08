@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="logError:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/logError_jar</output-path>
+    <root id="archive" name="logError.jar">
+      <element id="module-output" name="logError" />
+    </root>
+  </artifact>
+</component>

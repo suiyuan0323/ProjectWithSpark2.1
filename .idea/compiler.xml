@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="baserverTV" />
+        <module name="hiveToEs" />
+        <module name="kafkaConsumer" />
+        <module name="kgQuery" />
+        <module name="logError" />
+        <module name="nlugw" />
+        <module name="scalaTest" />
+        <module name="zipkinAggAll" />
+        <module name="zipkinOneHour" />
+        <module name="zipkinSpan" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="baserverTV" target="1.5" />
+      <module name="hiveToEs" target="1.5" />
+      <module name="kafkaConsumer" target="1.5" />
+      <module name="kgQuery" target="1.5" />
+      <module name="logError" target="1.5" />
+      <module name="nlugw" target="1.5" />
+      <module name="scalaTest" target="1.5" />
+      <module name="zipkinAgg" target="1.5" />
+      <module name="zipkinAggAll" target="1.5" />
+      <module name="zipkinOneHour" target="1.5" />
+      <module name="zipkinSpan" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="PREFER_TARGET_JDK_COMPILER" value="false" />
+  </component>
+</project>
