@@ -11,13 +11,19 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   */
 case class Baserver(spark: SparkSession, module: String = "baserver", eventName: String = "sys_input_output", sourceDF: DataFrame) extends Logging {
 
+  /**
+    * 统计请求数
+    *
+    * @param moduleDF
+    * @return
+    */
   def statisticsByTime(moduleDF: DataFrame) = {
     import spark.implicits._
     val conf = spark.sparkContext.getConf
     val timeInterval = conf.get("spark.aispeech.data.interval")
     moduleDF.withWatermark("logTime", conf.get("spark.aispeech.data.watermark.delay"))
       //      .dropDuplicates("sessionId") // 去重
-      .groupBy(window($"logTime", timeInterval, timeInterval), $"module", $"eventName"/*, $"sessionId"*/)
+      .groupBy(window($"logTime", timeInterval, timeInterval), $"module", $"eventName" /*, $"sessionId"*/)
       .count()
       .select($"count")
   }
