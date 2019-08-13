@@ -2,7 +2,7 @@
   <artifact type="jar" name="baserverTV:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/baserverTV_jar</output-path>
     <root id="archive" name="baserverTV.jar">
-      <element id="module-output" name="baserverTV" />
+      <element id="module-output" name="ModuleVisit" />
     </root>
   </artifact>
 </component>

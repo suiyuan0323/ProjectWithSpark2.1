@@ -1,1 +1,1 @@
-kafka-clients-0.10.0.1.jar,kafka-streams-0.10.0.1.jar,kafka_2.11-0.10.0.1.jar,spark-sql-kafka-0-10_2.11-2.1.0.jar,spark-streaming-kafka-0-10_2.11-2.1.0.jar
+kafka-clients-0.10.0.1.jar,kafka-streams-0.10.0.1.jar,kafka_2.11-0.10.0.1.jar,spark-sql-kafka-0-10_2.11-2.1.0.jar,spark-streaming-kafka-0-10_2.11-2.1.0.jar,fastjson-1.2.58.jar,jedis-3.0.1.jar,commons-pool2-2.6.0.jar
