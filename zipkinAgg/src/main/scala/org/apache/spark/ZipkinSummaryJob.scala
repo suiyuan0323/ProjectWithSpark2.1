@@ -73,13 +73,15 @@ object ZipkinSummaryJob extends Logging {
     */
   def writeStream(spark: SparkSession, df: DataFrame) = {
     val conf = spark.sparkContext.getConf
-    val streamingWriter = df.writeStream
+    df.writeStream
       .queryName("ES-Writer")
       .outputMode("append")
       .option("checkpointLocation", conf.get("spark.aispeech.checkpoint"))
+      .option("es.batch.write.retry.count", conf.get("spark.aispeech.write.es.batch.write.retry.count"))
+      .option("es.batch.write.retry.wait", conf.get("spark.aispeech.write.es.batch.write.retry.wait"))
       .format("org.elasticsearch.spark.sql.sink.EsSinkProvider")
       .trigger(ProcessingTime.create(conf.getInt("spark.aispeech.trigger.time", 60), TimeUnit.SECONDS))
-    streamingWriter.start()
+      .start()
   }
 
   def writeToConsole(spark: SparkSession, df: DataFrame) = {

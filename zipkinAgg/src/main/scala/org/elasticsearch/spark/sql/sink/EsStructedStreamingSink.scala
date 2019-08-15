@@ -44,19 +44,25 @@ class EsStructedStreamingSink(sparkSession: SparkSession, settings: Settings) ex
         commitProtocol.initJob(jobState)
         try {
           val resource = settings.getProperty(ConfigurationOptions.ES_RESOURCE_WRITE)
-
           settings.setResourceWrite(resource)
           val serializedSettings = settings.save()
           val taskCommits = sparkSession.sparkContext.runJob(queryExecution.toRdd,
             (taskContext: TaskContext, iter: Iterator[InternalRow]) => {
-              new EsStreamQueryWriter(serializedSettings, schema, commitProtocol).run(taskContext, iter)
+              try{
+                new EsStreamQueryWriter(serializedSettings, schema, commitProtocol).run(taskContext, iter)
+              }catch {
+                case ex: Throwable =>{
+                  // 存入redis
+                  logger.error("-----es 1 error , write to redis ：")
+                }
+              }
+              commitProtocol.commitJob(jobState, taskCommits)
             }
           )
-          commitProtocol.commitJob(jobState, taskCommits)
         } catch {
           case t: Throwable =>
             commitProtocol.abortJob(jobState)
-            throw t;
+            logger.error("-----es 2  error : " + t.getMessage)
         }
       }
     }
