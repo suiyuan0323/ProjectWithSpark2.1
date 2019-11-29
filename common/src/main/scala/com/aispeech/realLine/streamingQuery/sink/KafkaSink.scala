@@ -1,4 +1,4 @@
-package org.apache.spark.aispeech.sink
+package com.aispeech.realLine.streamingQuery.sink
 
 import java.util.Properties
 
