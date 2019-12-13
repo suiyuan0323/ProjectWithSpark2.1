@@ -39,26 +39,21 @@ class EsStructedStreamingSink(sparkSession: SparkSession, settings: Settings) ex
       val commitProtocol = new EsCommitProtocol(writeLog)
       val queryExecution = data.queryExecution
       val schema = data.schema
-      val indexTimeColumn = Option(sparkSession.sparkContext.getConf.get("spark.aispeech.write.es.timeColumn",null))
+      val indexTimeColumn = Option(sparkSession.sparkContext.getConf.get("spark.aispeech.write.es.timeColumn", null))
 
       SQLExecution.withNewExecutionId(sparkSession, queryExecution) {
         val queryName = SparkSqlStreamingConfigs.getQueryName(settings).getOrElse(UUID.randomUUID().toString)
         val jobState = JobState(queryName, batchId)
         commitProtocol.initJob(jobState)
         try {
-          // 这一步为了防止index是写在 spark.
-          val resource = settings.getProperty(ConfigurationOptions.ES_RESOURCE_WRITE)
-          val settingsNew = settings.setResourceWrite(resource.replaceAll("\\*", new SimpleDateFormat("yyyy-MM-dd").format(new Date())))
-          val serializedSettings = settingsNew.save()
-          val taskCommits =
-            sparkSession
-              .sparkContext
-              .runJob(
-                queryExecution.toRdd,
-                (taskContext: TaskContext, iter: Iterator[InternalRow]) => {
-                  new EsStreamQueryWriter(serializedSettings, schema, commitProtocol).run(taskContext, iter, indexTimeColumn)
-                }
-              )
+          // 这一步为了防止index是写在 spark.   SparkSettings 做了转换
+          val serializedSettings = settings.save()
+          val taskCommits = sparkSession.sparkContext.runJob(
+            queryExecution.toRdd,
+            (taskContext: TaskContext, iter: Iterator[InternalRow]) => {
+              new EsStreamQueryWriter(serializedSettings, schema, commitProtocol).run(taskContext, iter, indexTimeColumn)
+            }
+          )
           commitProtocol.commitJob(jobState, taskCommits)
         } catch {
           case t: Throwable =>

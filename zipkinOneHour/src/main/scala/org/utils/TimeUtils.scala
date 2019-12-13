@@ -1,6 +1,7 @@
 package org.utils
 
-import java.util.Calendar
+import java.text.SimpleDateFormat
+import java.util.{Calendar, TimeZone}
 
 /**
   * @author xiaomei.wang
@@ -25,4 +26,34 @@ object TimeUtils {
     cal.set(Calendar.MILLISECOND, 0)
     cal.getTimeInMillis
   }
+
+  def getZeroTimeStamp(index: Int): Long = {
+    val cal = Calendar.getInstance
+    cal.add(Calendar.DAY_OF_MONTH, -1)
+    cal.set(Calendar.HOUR_OF_DAY, 0)
+    cal.add(Calendar.HOUR, index)
+    cal.set(Calendar.SECOND, 0)
+    cal.set(Calendar.MINUTE, 0)
+    cal.set(Calendar.MILLISECOND, 0)
+    cal.getTimeInMillis
+  }
+
+  def main(args: Array[String]): Unit = {
+   //  println(getZeroTimeStamp(1))
+
+    testUtc()
+  }
+
+
+  def testUtc() = {
+    val simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd")
+    try {
+//      println(simpleDateFormat.parse("2015-12-12"))
+      simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"))
+      println(simpleDateFormat.parse("2015-12-12").getTime)
+    } catch {
+      case es =>
+    }
+  }
+
 }

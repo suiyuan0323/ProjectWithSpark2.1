@@ -7,33 +7,50 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dm_freeswitch_duration" />
+        <module name="common" />
+        <module name="DemoModule" />
         <module name="hiveToEs" />
+        <module name="hiveToHive" />
         <module name="kafkaConsumer" />
         <module name="kgQuery" />
-        <module name="logError" />
+        <module name="ModuleTV" />
         <module name="nlugw" />
-        <module name="onlinePhoneNum" />
+        <module name="queryEsToHive" />
+        <module name="ReadRedis" />
         <module name="scalaTest" />
-        <module name="zipkinAggAll" />
+        <module name="SparkStreamingZipkinSpan" />
+        <module name="StatsByStructedSaveToEs" />
         <module name="zipkinOneHour" />
         <module name="zipkinSpan" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="common" target="1.8" />
+      <module name="DemoModule" target="1.5" />
       <module name="dm_freeswitch_duration" target="1.5" />
+      <module name="freeswitch" target="1.5" />
       <module name="hiveToEs" target="1.5" />
+      <module name="hiveToHive" target="1.8" />
       <module name="kafkaConsumer" target="1.5" />
+      <module name="kf_parallelisem" target="1.8" />
       <module name="kgQuery" target="1.5" />
-      <module name="logError" target="1.5" />
-      <module name="ModuleVisit" target="1.5" />
+      <module name="logError" target="1.8" />
+      <module name="ModuleTV" target="1.8" />
       <module name="nlugw" target="1.5" />
-      <module name="onlinePhoneNum" target="1.5" />
-      <module name="scalaTest" target="1.5" />
-      <module name="zipkinAgg" target="1.5" />
-      <module name="zipkinAggAll" target="1.5" />
+      <module name="offline_fs_parallelisem" target="1.8" />
+      <module name="ProjectWithSpark2.1" target="1.8" />
+      <module name="queryEsToHive" target="1.8" />
+      <module name="ReadRedis" target="1.8" />
+      <module name="redisUtils" target="1.5" />
+      <module name="scalaTest" target="1.8" />
+      <module name="SparkHiveSQL" target="1.5" />
+      <module name="SparkStreamingParallelism" target="1.8" />
+      <module name="SparkStreamingZipkinSpan" target="1.8" />
+      <module name="StatsByStructedSaveToEs" target="1.8" />
+      <module name="zipkinAgg" target="1.8" />
+      <module name="zipkinModule" target="1.8" />
       <module name="zipkinOneHour" target="1.5" />
-      <module name="zipkinSpan" target="1.5" />
+      <module name="zipkinSpan" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

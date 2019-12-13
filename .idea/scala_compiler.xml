@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="zipkinSpan">
+    <profile name="Maven 1" modules="ModuleTV,ParallelismStats,ProjectWithSpark2.1,ReadRedis,SparkStreamingZipkinSpan,StatsByStructedSaveToEs,common,hiveToHive,kf_parallelisem,logError,offline_fs_parallelisem,queryEs,queryEsToHive,scalaTest,zipkinAgg,zipkinModule,zipkinSpan">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <option name="featureWarnings" value="true" />

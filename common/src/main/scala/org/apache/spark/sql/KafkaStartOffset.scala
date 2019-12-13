@@ -1,6 +1,6 @@
 package org.apache.spark.sql
 
-import com.aispeech.common.monitor.SendUtils
+import com.sparkDataAnalysis.common.monitor.SendUtils
 import org.apache.hadoop.fs.Path
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.execution.streaming.OffsetSeqLog
@@ -27,7 +27,7 @@ case class KafkaStartOffset(spark: SparkSession, checkpoint: String,
     fs.delete(new Path(checkpoint), true)
     // 4、send a message where the checkpoint is
     val r = new SendUtils()
-    spark.sparkContext.getConf.get("spark.aispeech.monitor.urls")
+    spark.sparkContext.getConf.get("spark.monitor.urls")
       .split(",")
       .foreach(sendUrl => r.send(s"""[appName:${spark.sparkContext.appName}], start kafka offsets from:$offset""", sendUrl.trim))
     logWarning("----- start offsets " + offset)

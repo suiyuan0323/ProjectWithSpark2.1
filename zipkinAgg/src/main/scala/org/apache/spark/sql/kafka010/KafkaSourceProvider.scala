@@ -36,7 +36,7 @@ import org.apache.spark.sql.types.StructType
   * IllegalArgumentException when the Kafka Dataset is created, so that it can catch
   * missing options even before the query is started.
   */
-private[kafka010] class KafkaSourceProvider extends StreamSourceProvider
+class KafkaSourceProvider extends StreamSourceProvider
   with DataSourceRegister with Logging {
 
   import KafkaSourceProvider._

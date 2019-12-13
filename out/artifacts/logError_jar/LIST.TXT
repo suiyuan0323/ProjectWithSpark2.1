@@ -1,1 +1,1 @@
-connect-api-0.10.0.1.jar,connect-json-0.10.0.1.jar,elasticsearch-spark-20_2.11-6.7.2.jar,fastjson-1.2.58.jar,kafka-clients-0.10.0.1.jar,kafka-streams-0.10.0.1.jar,kafka_2.11-0.10.0.1.jar,spark-sql-kafka-0-10_2.11-2.1.0.jar,spark-streaming-kafka-0-10_2.11-2.1.0.jar
+connect-api-0.10.0.1.jar,connect-json-0.10.0.1.jar,elasticsearch-spark-20_2.11-6.7.2.jar,fastjson-1.2.58.jar,kafka-clients-0.10.0.1.jar,kafka-streams-0.10.0.1.jar,kafka_2.11-0.10.0.1.jar,spark-sql-kafka-0-10_2.11-2.1.0.jar,spark-streaming-kafka-0-10_2.11-2.1.0.jar,httpclient-4.5.9.jar

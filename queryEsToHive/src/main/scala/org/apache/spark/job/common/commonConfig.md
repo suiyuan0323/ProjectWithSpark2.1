@@ -1,0 +1,15 @@
+{
+'spark.es.resource.read':'ba_kf_api_detail*/summary',
+'spark.es.nodes':'10.24.1.44,10.24.1.23,10.24.1.24',
+'spark.es.port':'9200',
+'spark.es.nodes.wan.only':'false',
+'spark.es.net.http.auth.user':'rsbj_ba_backend',
+'spark.es.net.http.auth.pass':'ba_backend@Speech1024',
+'spark.es.batch.size.bytes':'2mb',
+'spark.es.scroll.keepalive':'20m',
+'spark.es.scroll.size':'3000',
+'spark.es.batch.size.entries':'5000',
+'spark.es.batch.write.refresh':'false',
+'spark.es.batch.write.retry.wait':'30s',
+'spark.es.batch.write.retry.count':'6',
+}

@@ -4,9 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/zipkinAgg/pom.xml" />
-        <option value="$PROJECT_DIR$/logError/pom.xml" />
         <option value="$PROJECT_DIR$/zipkinOneHour/pom.xml" />
-        <option value="$PROJECT_DIR$/zipkinAggAll/pom.xml" />
         <option value="$PROJECT_DIR$/kafkaConsumer/pom.xml" />
         <option value="$PROJECT_DIR$/zipkinSpan/pom.xml" />
         <option value="$PROJECT_DIR$/nlugw/pom.xml" />
@@ -14,9 +12,17 @@
         <option value="$PROJECT_DIR$/hiveToEs/pom.xml" />
         <option value="$PROJECT_DIR$/scalaTest/pom.xml" />
         <option value="$PROJECT_DIR$/baserverTV/pom.xml" />
-        <option value="$PROJECT_DIR$/dm_freeswitch_duration/pom.xml" />
-        <option value="$PROJECT_DIR$/onlinePhoneNum/pom.xml" />
-        <option value="$PROJECT_DIR$/ModuleVisit/pom.xml" />
+        <option value="$PROJECT_DIR$/ModuleTV/pom.xml" />
+        <option value="$PROJECT_DIR$/DemoModule/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ParallelismStats/pom.xml" />
+        <option value="$PROJECT_DIR$/SparkStreamingZipkinSpan/pom.xml" />
+        <option value="$PROJECT_DIR$/ReadRedis/pom.xml" />
+        <option value="$PROJECT_DIR$/queryEs/pom.xml" />
+        <option value="$PROJECT_DIR$/StatsByStructedSaveToEs/pom.xml" />
+        <option value="$PROJECT_DIR$/queryEsToHive/pom.xml" />
+        <option value="$PROJECT_DIR$/hiveToHive/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

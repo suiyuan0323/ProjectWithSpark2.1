@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/zipkinAgg_jar</output-path>
     <root id="archive" name="zipkinAgg.jar">
       <element id="module-output" name="zipkinAgg" />
+      <element id="module-output" name="common" />
     </root>
   </artifact>
 </component>

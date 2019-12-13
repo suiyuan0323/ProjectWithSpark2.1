@@ -1,1 +1,0 @@
-elasticsearch-spark-20_2.11-6.7.2.jar,fastjson-1.2.58.jar

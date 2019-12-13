@@ -12,4 +12,9 @@
 'spark.memory.fraction':'0.8',
 'spark.memory.storageFraction':'0.2',
 'spark.memory.offHeap.enabled':'true',
-'spark.memory.offHeap.size':'2048mb'}
+'spark.memory.offHeap.size':'2048mb',
+'spark.aispeech.data.time':'{"2019-10-08":[{"beginTimestamp":1570496400000,"endTimestamp":1570500000000},
+                            {"beginTimestamp":1570500000000,"endTimestamp":1570503600000},
+                            {"beginTimestamp":1570503600000,"endTimestamp":1570507200000},
+                            {"beginTimestamp":1570507200000,"endTimestamp":1570510800000},
+                            {"beginTimestamp":1570510800000,"endTimestamp":1570514400000}]}'}

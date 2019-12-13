@@ -64,18 +64,27 @@ private[sql] class EsStreamQueryWriter(serializedSettings: String,
     }
   }
 
+  def writeBatch(taskContext: TaskContext, data: Iterator[InternalRow]) {
+    settings.setResourceWrite(settings.getResourceWrite()
+      .replaceAll("\\*", new SimpleDateFormat("yyyy-MM-dd").format(new Date())))
+    val writer = RestService.createWriter(settings, taskContext.partitionId.toLong, -1, log)
+    taskContext.addTaskCompletionListener((TaskContext) => writer.close())
+    if (runtimeMetadata) {
+      writer.repository.addRuntimeFieldExtractor(metaExtractor)
+    }
+    while (data.hasNext) {
+      writer.repository.writeToIndex(processData(data))
+    }
+  }
+
   def run(taskContext: TaskContext, data: Iterator[InternalRow], indexTimeField: Option[String]): TaskCommit = {
-//    settings.setResourceWrite(settings.getResourceWrite().replaceAll("\\*", resource))
     val taskInfo = TaskState(taskContext.partitionId(), settings.getResourceWrite)
     commitProtocol.initTask(taskInfo)
     try {
       indexTimeField match {
-        case None =>
-          //  super的 write，是每个partition写入相同的index，用同一个writer，也写入相同的es的shard
-          super.write(taskContext, data)
-        case Some(filedName) =>
-          // 会遍历每一个item，生成resource，index，之后生成write，太慢了。
-          write(taskContext, data, filedName)
+        case None => writeBatch(taskContext, data)
+        // 会遍历每一个item，生成resource，index，之后生成write，太慢了。
+        case Some(filedName) => write(taskContext, data, filedName)
       }
     } catch {
       case t: Throwable =>

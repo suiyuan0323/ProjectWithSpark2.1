@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="hiveToEs:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/hiveToEs_jar</output-path>
-    <root id="archive" name="hiveToEs.jar">
-      <element id="module-output" name="hiveToEs" />
-    </root>
-  </artifact>
-</component>

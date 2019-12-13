@@ -46,4 +46,19 @@ object JsonTest {
     }
     println(detail.toJSONString)
   }
+
+  def test3 = {
+    val testString = "{recordId=de662e7965a5c9650a248337fc82f53d, question=啊, skillId=[S6538005968558190592]}"
+    val pattern1 ="""(.*)\{(.*)=(.*)\,(.*)=(.*),(.*)=(.*)\}""".r
+    val detail = new JSONObject()
+    testString match {
+      case pattern1(_, key1, value1, key2, value2, key3, value3) => {
+        detail.put(key1.trim,value1.trim.replaceAll("\\[","").replaceAll("\\]",""))
+        detail.put(key2.trim,value2.trim.replaceAll("\\[","").replaceAll("\\]",""))
+        detail.put(key3.trim,value3.trim.replaceAll("\\[","").replaceAll("\\]",""))
+      }
+      case _ => println("not match")
+    }
+    println(detail.toJSONString)
+  }
 }

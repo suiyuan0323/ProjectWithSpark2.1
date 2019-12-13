@@ -1,6 +1,8 @@
 package org.apache.spark
 
 import java.text.SimpleDateFormat
+
+import com.alibaba.fastjson.{JSON, JSONArray}
 import org.utils.TimeUtils
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.functions._
@@ -33,21 +35,48 @@ object ZipkinSummaryJob extends Logging {
 
     logError("spark conf: " + spark.sparkContext.getConf.toDebugString)
     spark.sparkContext.setLogLevel("WARN")
-    execute(spark)
+
+
+    initJob(spark)
   }
 
-  def execute(spark: SparkSession) = {
-    // 每次触发 当前小时的20分触发。
+  /**
+    * 如果配置了数据的时间，处理配置的数据，如果没配置，则处理当前时间点的前一个小时的数据
+    *
+    * @param spark
+    */
+  def initJob(spark: SparkSession) = {
     val conf = spark.sparkContext.getConf
-    val beginTimestamp = TimeUtils.getEndTimeStamp(-1)
-    val endTimeStamp = beginTimestamp + 3600000
-    val dayStr = new SimpleDateFormat("yyyy-MM-dd").format(beginTimestamp)
+    val timeJson = conf.get("spark.aispeech.data.time")
+    timeJson.isEmpty match {
+      case true => {
+        val beginTimestamp = TimeUtils.getEndTimeStamp(-1)
+        execute(spark, beginTimestamp, beginTimestamp + 3600000, new SimpleDateFormat("yyyy-MM-dd").format(beginTimestamp))
+      }
+      case false => {
+        val dayStrMap = JSON.parseObject(timeJson).getInnerMap
+        val dayKeys = dayStrMap.keySet().iterator()
+        while (dayKeys.hasNext) {
+          val dayStr = dayKeys.next()
+          val timeStampJsonArray: JSONArray = dayStrMap.get(dayStr).asInstanceOf[JSONArray]
+          for (i <- 0 until timeStampJsonArray.size()) {
+            val beginTimestamp = timeStampJsonArray.getJSONObject(i).getLong("beginTimestamp")
+            val endTimestamp = timeStampJsonArray.getJSONObject(i).getLong("endTimestamp")
+            execute(spark, beginTimestamp, endTimestamp, dayStr)
+          }
+        }
+      }
+    }
+  }
+
+  def execute(spark: SparkSession, beginTimestamp: Long, endTimestamp: Long, dayStr: String) = {
+    val conf = spark.sparkContext.getConf
+    logError("_______start:" + beginTimestamp + ",end:" + endTimestamp + ",indexDayStr:" + dayStr)
     val readSource = conf.get("spark.aispeech.read.es.index") + dayStr + "/" + conf.get("spark.aispeech.read.es.type")
-    logError("_______start:" + beginTimestamp + ",end:" + endTimeStamp + ",indexDayStr:" + dayStr)
-    val tempTableName = "zipkinTable"
-    read(spark, readSource, "", beginTimestamp, endTimeStamp).createOrReplaceTempView(tempTableName)
+    val tempTableName = "zipkinTable" + beginTimestamp
+    read(spark, readSource, "", beginTimestamp, endTimestamp).createOrReplaceTempView(tempTableName)
     val writeSource = conf.get("spark.aispeech.write.es.index") + dayStr + "/" + conf.get("spark.aispeech.write.es.type")
-    write(spark, writeSource, beginTimestamp, endTimeStamp, dayStr, tempTableName)
+    write(spark, writeSource, beginTimestamp, endTimestamp, dayStr, tempTableName)
   }
 
   /**

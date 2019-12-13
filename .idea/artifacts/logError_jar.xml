@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/logError_jar</output-path>
     <root id="archive" name="logError.jar">
       <element id="module-output" name="logError" />
+      <element id="module-output" name="common" />
     </root>
   </artifact>
 </component>

@@ -1,0 +1,10 @@
+{
+'spark.aispeech.read.table.name':'his.ba_prod_trace_log_new',
+'spark.aispeech.write.table.name':'fact_ba.fact_kg_query_repeat',
+'spark.aispeech.data.days':'',
+'spark.aispeech.data.question.repeatNum.minNum':'5',
+'spark.aispeech.data.question.maxLength':'100',
+'spark.aispeech.data.question.overLength.replaceText':'提问语句超长',
+'spark.aispeech.data.filter.module':'kg-query',
+'spark.aispeech.data.filter.message.contain':'@t0:nvfLBE',
+}

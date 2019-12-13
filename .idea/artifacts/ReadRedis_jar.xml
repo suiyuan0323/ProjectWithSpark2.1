@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ReadRedis:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ReadRedis_jar</output-path>
+    <root id="archive" name="ReadRedis.jar">
+      <element id="module-output" name="ReadRedis" />
+      <element id="module-output" name="common" />
+    </root>
+  </artifact>
+</component>

@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/zipkinSpan_jar</output-path>
     <root id="archive" name="zipkinSpan.jar">
       <element id="module-output" name="zipkinSpan" />
+      <element id="module-output" name="common" />
     </root>
   </artifact>
 </component>

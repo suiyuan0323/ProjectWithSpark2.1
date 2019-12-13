@@ -1,0 +1,14 @@
+{
+'spark.aispeech.read.kafka.startOffsets':'latest',
+'spark.aispeech.read.kafka.maxOffsetsPerTrigger':'3500000',
+'spark.aispeech.read.kafka.failOnDataLoss':'false',
+'spark.aispeech.read.kafka.brokers':'10.24.1.10:6667,10.24.1.21:6667,10.24.1.32:6667,10.24.1.43:6667',
+'spark.aispeech.read.kafka.topics':'ba-prod-zipkin-log',
+'spark.aispeech.checkpoint':'/user/rsbj_ba_backend/moduleTVDemo/checkpoint/span/',
+'spark.aispeech.trigger.time':'60',
+'spark.memory.fraction':'0.8',
+'spark.memory.storageFraction':'0.2',
+'spark.memory.offHeap.enabled':'true',
+'spark.memory.offHeap.size':'2048mb',
+'spark.sql.shuffle.partitions':'600',
+'spark.aispeech.read.kafka.maxOffsetperTrigger':'800000'}
